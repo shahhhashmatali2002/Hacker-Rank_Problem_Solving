@@ -454,11 +454,14 @@
 #
 # print(round(float(numpy.linalg.det(matrix)) + 0.0, 2))
 
+
 #==================================================================
 #                      C O L L E C T I O N S
 #==================================================================
+
 #------------------{ hacker rank Piling Up! }------------------
 # Greedily pick the larger end; must be <= the current top block.
+
 # from collections import deque
 #
 # t = int(input())
@@ -478,8 +481,10 @@
 #             possible = False
 #             break
 #     print("Yes" if possible else "No")
+
 #------------------{ hacker rank Company Logo }------------------
 # Sort by descending frequency (-count), then alphabetical order (char).
+
 # from collections import Counter
 #
 # if __name__ == '__main__':
@@ -488,3 +493,94 @@
 #     sorted_chars = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
 #     for char, count in sorted_chars[:3]:
 #         print(char, count)
+
+
+#==================================================================
+#                      B U I L T - I N S
+#==================================================================
+
+#------------------{ hacker rank Athlete Sort }------------------
+# Stable sort on k-th index; Python's list.sort() preserves input order on ties.
+
+# if __name__ == '__main__':
+#     n, m = map(int, input().split())
+#     arr = [list(map(int, input().split())) for _ in range(n)]
+#     k = int(input())
+#     arr.sort(key=lambda row: row[k])
+#     for row in arr:
+#         print(*row)
+
+#------------------{ hacker rank Any or All }------------------
+# Solved in 3 lines: all numbers positive AND any number palindromic.
+
+# _ = input()
+# nums = input().split()
+# print(all(int(x) > 0 for x in nums) and any(x == x[::-1] for x in nums))
+
+#------------------{ hacker rank ginortS }------------------
+# Custom sort tuple key: (category_priority, char)
+# 0: lowercase, 1: uppercase, 2: odd digits, 3: even digits
+
+# s = input()
+# print(''.join(sorted(s, key=lambda c: (
+#     0 if c.islower() else 
+#     1 if c.isupper() else 
+#     2 if int(c) % 2 != 0 else 
+#     3, 
+#     c
+# ))))
+
+
+#==================================================================
+#                           M A T H
+#==================================================================
+
+#------------------{ hacker rank Mod Divmod }------------------
+
+# a = int(input())
+# b = int(input())
+#
+# print(a // b)
+# print(a % b)
+# print(divmod(a, b))
+
+#------------------{ hacker rank Power - Mod Power }------------------
+
+# a = int(input())
+# b = int(input())
+# m = int(input())
+#
+# print(pow(a, b))
+# print(pow(a, b, m))
+
+#------------------{ hacker rank Integers Come In All Sizes }------------------
+
+# a = int(input())
+# b = int(input())
+# c = int(input())
+# d = int(input())
+#
+# print(pow(a, b) + pow(c, d))
+
+#------------------{ hacker rank Triangle Quest }------------------
+# (10**i // 9) generates repunits (1, 11, 111, ...); multiply by i to get repdigits.
+# No strings allowed per rules.
+
+# for i in range(1, int(input())):
+#     print((10**i // 9) * i)
+
+
+#==================================================================
+#                     I T E R T O O L S
+#==================================================================
+
+#------------------{ hacker rank Maximize It! }------------------
+# itertools.product generates all combinations across K lists (max 7^7 combinations).
+# Remember to slice [1:] to skip each line's length count element.
+
+# from itertools import product
+#
+# k, m = map(int, input().split())
+# lists = [list(map(int, input().split()))[1:] for _ in range(k)]
+#
+# print(max(sum(x**2 for x in combo) % m for combo in product(*lists)))
