@@ -453,3 +453,38 @@
 # matrix = numpy.array([input().split() for _ in range(n)], float)
 #
 # print(round(float(numpy.linalg.det(matrix)) + 0.0, 2))
+
+#==================================================================
+#                      C O L L E C T I O N S
+#==================================================================
+#------------------{ hacker rank Piling Up! }------------------
+# Greedily pick the larger end; must be <= the current top block.
+# from collections import deque
+#
+# t = int(input())
+# for _ in range(t):
+#     n = int(input())
+#     blocks = deque(map(int, input().split()))
+#     top = float('inf')
+#     possible = True
+#     while blocks:
+#         if blocks[0] >= blocks[-1]:
+#             pick = blocks.popleft()
+#         else:
+#             pick = blocks.pop()
+#         if pick <= top:
+#             top = pick
+#         else:
+#             possible = False
+#             break
+#     print("Yes" if possible else "No")
+#------------------{ hacker rank Company Logo }------------------
+# Sort by descending frequency (-count), then alphabetical order (char).
+# from collections import Counter
+#
+# if __name__ == '__main__':
+#     s = input()
+#     counts = Counter(s)
+#     sorted_chars = sorted(counts.items(), key=lambda item: (-item[1], item[0]))
+#     for char, count in sorted_chars[:3]:
+#         print(char, count)
